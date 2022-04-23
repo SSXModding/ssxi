@@ -12,9 +12,8 @@
 
 #include <thread>
 
-int main() {
-	ssxi::SSX ssx;
-
+template<class TGame>
+void TestCode(TGame& ssx) {
 	// Walk the chain to eventually get the player rider.
 	// This could be done in one statement, but it would be a tiny bit more
 	// unmaintainable, and I generally don't think it would be worth it.
@@ -38,5 +37,10 @@ int main() {
 		std::cout << "Position is (" << v3.x << ',' << v3.y << ',' << v3.z << ")\n";
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
+}
 
+int main() {
+	ssxi::SSX ssx;
+
+	TestCode(ssx);
 }
